@@ -11,53 +11,19 @@ export default class Home extends Component{
         super(props);
 
         this.state = {
-            places: [],
+            city: null,
         }
 
-        this.apiKey = "AIzaSyCD6irhf_cJoK_6l-GkU1T2rw1PS7NqsBc";
-        this.fetchPlaces = this.fetchPlaces.bind(this);
+        // this.handleButtonPressed = this.handleButtonPressed.bind(this);
     }
 
-    fetchPlaces() {
+    componentWillUnmount() {
         var dest = `${document.getElementById("place").value} city point of interest`;
-        this.place = dest.split(' ').join('+');
-        console.log(this.place);
-        const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${this.place}&language=en&key=${this.apiKey}`;
-        fetch(url)
-        .then((response) => response.json())
-        .then((data) => {
-            var final = [];
-            var results = Array(data)[0]['results'];
-            //console.log(results);
-            
-            for(var i = 0; i < results.length; i++){
-                var name = results[i]['name'];
-                var rating = results[i]['rating'];
-                var num_ratings = results[i]['user_ratings_total'];
-                var open_now = Object(results[i]['opening_hours'])['open_now'];
-                
-                var photo = Object(results[i]['photos']);
-                var photo_url = "NA";
-                if(photo.length > 0){
-                    var photo_reference = photo["0"]["photo_reference"];
-                    photo_url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo_reference}&key=${this.apiKey}`;
-                    //console.log(photo_url);
-                }
-
-                var place = {
-                    "name": name,
-                    "rating": rating,
-                    "num_ratings": num_ratings,
-                    "open_now": open_now,
-                    "img_url": photo_url
-                };
-
-                final.push(place);
-            }
-            console.log(final);
-            this.setState({ places: final });
-            return final;
-        });
+        var place = dest.split(' ').join('+');
+        console.log(place);
+        this.setState({ city: place });
+        console.log(this.state.city);
+        return place;
     }
 
     render(){
@@ -100,7 +66,7 @@ export default class Home extends Component{
                         <br/>
                         <input type="text" class="form-control ip" id="place" placeholder="Place Name" />
                         <br/>
-                        <button onClick={this.fetchPlaces}><Link to={"/City"}>CLICK TO SEE</Link></button>
+                        <button><Link to={"/City"}>CLICK TO SEE</Link></button>
 
 
                     </div>
