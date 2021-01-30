@@ -13,9 +13,8 @@ class Home extends Component{
                 <div class="row">
                     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"></link>
                     <div class="col-sm-6 para">
-                        <h1>VACATIONER</h1>
                         <br /><br /><br />
-                        <p> <h5>Hey there! Planning a vacation but worried about COVID? </h5>
+                        <p> <h2>Hey there!</h2> <h5>Planning a vacation but worried about COVID? </h5>
                         <br/>
                         Put an end to your worry and pack your bags as we tell you about the safest 
                         destinations to visit in the city of your choice...In just one click!

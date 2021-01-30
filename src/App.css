@@ -9,9 +9,7 @@ i{
     padding: 10px;
 }
 
-i:hover{
-    background-color: aquamarine;
-}
+
 
 .App{
     
@@ -20,4 +18,14 @@ i:hover{
     background-position: center;
     background-size: cover;
 
+}
+
+.img{
+    width: 20%;
+    height: auto;
+    margin-left: 40%;
+}
+
+nav{
+    text-align: center;
 }
