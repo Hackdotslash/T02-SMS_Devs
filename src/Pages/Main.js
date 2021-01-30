@@ -15,11 +15,12 @@ class Home extends Component{
                     <div class="col-sm-6 para">
                         <h1>VACATIONER</h1>
                         <br /><br /><br />
-                        <p>Builds the app for production to the build folder.
-                        It correctly bundles React in production mode and optimizes the build for the best performance.
-
-                        The build is minified and the filenames include the hashes.
-                        Your app is ready to be deployed!See the section about deployment for more information.</p>
+                        <p> <h5>Hey there! Planning a vacation but worried about COVID? </h5>
+                        <br/>
+                        Put an end to your worry and pack your bags as we tell you about the safest 
+                        destinations to visit in the city of your choice...In just one click!
+                        <br/>
+                         </p>
                      
 
                     </div>
@@ -38,6 +39,12 @@ class Home extends Component{
                     </div>
                     <div class="col-sm-6">
                         <br /><br /><br />
+                        <p> Enter the place where you want to visit and find:
+                        <ul><li> COVID Scenario of the place </li>
+                        <li> Major tourist attractions of the place </li>
+                        <li> How to reach the place </li>
+                        </ul></p>
+                        <br/>
                         <input type="text" class="form-control ip" id="place" placeholder="Place Name" />
                         <br/>
                         <button type="button" class="btn btn-primary btn-lg letsgo">LET'S SEE</button>
