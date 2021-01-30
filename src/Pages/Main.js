@@ -106,7 +106,7 @@ export default class Home extends Component{
                         <br/>
                         <input type="text" class="form-control ip" id="place" placeholder="Place Name" />
                         <br/>
-                        <button id="button" class="btn btn-large btn-primary" onClick={this.fetchPlaces}><Link to={"/City"}>CLICK TO SEE</Link></button>
+                        <button id="button" class="btn btn-large btn-primary" onClick={this.fetchPlaces}><Link to={"/City"}><b>LET'S SEE</b></Link></button>
 
 
                     </div>

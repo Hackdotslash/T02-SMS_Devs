@@ -4,7 +4,7 @@ import '../Assets/css/main.css';
 import Card from '../components/Card';
 import '../Assets/css/city.css';
 import last from '../Assets/images/4.jpg';
-import corona from '../Assets/images/corona.png';
+
 
 export default class City extends Component{
 
