@@ -6,11 +6,9 @@ import '../Assets/css/city.css';
 import last from '../Assets/images/4.jpg';
 import corona from '../Assets/images/corona.png';
 
+export default class City extends Component{
 
-
-class City extends Component {
     render() {
-
         return (
             <div className="citycontainer container">
                 <div class="jumbotron">
@@ -23,9 +21,13 @@ class City extends Component {
                 </div>
                <h2>The best Places to visit:</h2>
         
-              <Card />
-              <Card />
-              <Card />
+               {
+                    Array(this.props.places).map((val, i) => {
+                            return (
+                            <Card key={i} img_url={val.img_url} name={val.name} rating={val.rating} num_ratings={val.num_ratings} open_now={val.open_now} />
+                            )
+                    })
+               }
 
                 <center><img className="last" src={last} /></center>
 
@@ -34,5 +36,3 @@ class City extends Component {
         );
     }
 }
-
-export default City;
