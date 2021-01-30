@@ -4,10 +4,16 @@ import img1 from '../Assets/images/1.jpg';
 import img2 from '../Assets/images/2.jpg';
 import '../Assets/css/main.css';
 import {Link} from 'react-router-dom';
+import $ from 'jquery';
+
+$("#button").click(function () {
+    $(window).scrollTop(0);
+});
 
 
 class Home extends Component{
     render(){
+      
 
         return(
             <div className="maincontainer container">
@@ -47,7 +53,7 @@ class Home extends Component{
                         <br/>
                         <input type="text" class="form-control ip" id="place" placeholder="Place Name" />
                         <br/>
-                        <Link to={"/City"}>CLICK TO SEE</Link>
+                        <Link id="button" class="btn btn-large btn-primary" to={"/City"}>CLICK TO SEE</Link>
 
 
                     </div>
