@@ -2,14 +2,11 @@ import './App.css';
 import Main from './Pages/Main';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import City from './Pages/City';
-<<<<<<< HEAD
 import Footer from '../src/components/Footer'
 import logo from './Assets/images/vacationer_logo.png';
-=======
 import {BrowserRouter,Switch,Route,Redirect} from "react-router-dom";
 import  { Link } from 'react-router-dom';
 
->>>>>>> bf723e30d47a0fb5c5f0f78283ab827523eb1467
 function App() {
   return (
     <div className="App">
