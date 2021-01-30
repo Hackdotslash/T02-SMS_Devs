@@ -1,6 +1,7 @@
 import './App.css';
 import Main from './Pages/Main';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import City from './Pages/City';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <a class="navbar-brand" href="#">Logo</a>
       </nav>
       <Main/>
+      <City/>
 
     <div class="footer">
         <i class="fas fa-cloud"></i>

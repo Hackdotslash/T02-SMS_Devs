@@ -12,3 +12,12 @@ i{
 i:hover{
     background-color: aquamarine;
 }
+
+.App{
+    
+    background-image:url("../src/Assets/images/dotslash4.png");
+     background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+
+}
