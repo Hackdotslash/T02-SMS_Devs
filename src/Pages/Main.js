@@ -3,6 +3,7 @@ import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import img1 from '../Assets/images/1.jpg';
 import img2 from '../Assets/images/2.jpg';
 import '../Assets/css/main.css';
+import {Link} from 'react-router-dom';
 
 
 class Home extends Component{
@@ -47,7 +48,7 @@ class Home extends Component{
                         <br/>
                         <input type="text" class="form-control ip" id="place" placeholder="Place Name" />
                         <br/>
-                        <button type="button" class="btn btn-primary btn-lg letsgo">LET'S SEE</button>
+                        <Link to={"/City"}>CLICK TO SEE</Link>
 
 
                     </div>
