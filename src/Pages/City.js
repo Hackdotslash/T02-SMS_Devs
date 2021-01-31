@@ -5,6 +5,7 @@ import Card from '../components/Card';
 import '../Assets/css/city.css';
 import last from '../Assets/images/4.jpg';
 import corona from '../Assets/images/corona.png';
+import { Link, Redirect } from "react-router-dom";
 
 export default class City extends Component{
 
@@ -14,6 +15,7 @@ export default class City extends Component{
         this.state = {
             places: [],
             covid: [],
+            place: "",
         }
 
         var dest = `${this.props.city} city point of interest`;
@@ -42,6 +44,7 @@ export default class City extends Component{
                 var num_ratings = results[i]['user_ratings_total'];
                 var address = results[i]['formatted_address'];
                 var open_now = Object(results[i]['opening_hours'])['open_now'] ? "Open" : "Closed";
+                var place_id = results[i]['place_id'];
                 
                 var photo = Object(results[i]['photos']);
                 var photo_url = "NA";
@@ -57,7 +60,8 @@ export default class City extends Component{
                     "num_ratings": num_ratings,
                     "address": address,
                     "open_now": open_now,
-                    "img_url": photo_url
+                    "img_url": photo_url,
+                    "place_id": place_id
                 };
 
                 final.push(place);
@@ -115,15 +119,25 @@ export default class City extends Component{
                     <h1>Covid 19 Scenario</h1>
                     <img src="https://cdn.pixabay.com/photo/2020/04/29/07/54/coronavirus-5107715_960_720.png"/>
                     <hr></hr>
-                    <p><span>{this.state.covid['active']} active cases</span><br/>
+                    <p>
+                        <span>{this.state.covid['active']} active cases</span><br/>
                     </p>
+                    <b>{this.state.covid['active'] < 200 ? "Safe to visit :)" : "Not good to visit this time :("}</b>
                 </div>
                <h2>The best Places to visit:</h2>
                
                {
                     this.state.places.map((val, i) => {
                             return (
-                            <Card key={i} img_url={val.img_url} name={val.name} address={val.address} rating={val.rating} num_ratings={val.num_ratings} open_now={val.open_now} />
+                                // <Link
+                                //     onClick={(e) => {
+                                //         e.preventDefault();
+                                //         this.setState({ place: val.place_id });
+                                //         Redirect("/Place");
+                                //     }}
+                                // >
+                                    <Card key={i} img_url={val.img_url} name={val.name} address={val.address} rating={val.rating} num_ratings={val.num_ratings} open_now={val.open_now} />
+                                // </Link>
                             )
                     })
                }

@@ -16,6 +16,9 @@ export default class Home extends Component {
       clicked: false,
     };
 
+    this.renderHomePage = this.renderHomePage.bind(this);
+    this.renderCityPage = this.renderCityPage.bind(this);
+
   }
 
   renderHomePage() {
