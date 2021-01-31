@@ -11,9 +11,7 @@ const Card = (props) => {
             </div>
             <div class="col-sm-6 content">
                 <h2>{props.name}</h2>
-                <p>City of dreams!! vbdhvhdvbhdvvvvvvbvhgvhejvhjvjnbjrjbinribb
-                    vhvhjrubhujrhbvujrbjuhjurbjbrjjnjhdhdb.
-                </p>
+                <p>{props.address}</p>
            
 
                 <p><span class="badge badge-pill badge-info">{props.rating}</span><small>{props.num_ratings}</small></p>
