@@ -17,6 +17,14 @@ export default class App extends Component{
         
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
           <a class="navbar-brand" href="#" className="img"><img src={logo}/></a>
+          <ul class="navbar-nav">
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/"><i class="fa fa-undo" aria-hidden="true"></i>
+</a>
+            </li>
+            
+          </ul>
         </nav>
         <BrowserRouter>
         <Switch>
