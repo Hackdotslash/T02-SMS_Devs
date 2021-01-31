@@ -1,3 +1,9 @@
+.gallerycontainer {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
 .gallerycontainer img{
     width: 100%;
 }
@@ -14,7 +20,7 @@
 .column {
   -ms-flex: 25%; /* IE10 */
   flex: 25%;
-  max-width: 25%;
+  max-width: 33%;
   padding: 0 4px;
 }
 

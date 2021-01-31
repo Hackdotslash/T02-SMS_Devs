@@ -7,7 +7,7 @@ import Footer from '../src/components/Footer'
 import logo from './Assets/images/vacationer_logo.png';
 import {BrowserRouter,Switch,Route,Redirect} from "react-router-dom";
 import  { Link } from 'react-router-dom';
-import Gallery from './Pages/Gallery';
+import Place from "../src/Pages/Place";
 
 export default class App extends Component{
   render() {
@@ -30,6 +30,7 @@ export default class App extends Component{
         <Switch>
         <Route exact path="/" component={Main}/>
         <Route exact path="/City" component={City}/>
+        <Route exact path="/Place" component={Place} />
         <Link to='/' > some stuff </Link>
         </Switch>
         </BrowserRouter>

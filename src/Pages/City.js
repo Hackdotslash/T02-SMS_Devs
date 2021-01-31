@@ -4,6 +4,8 @@ import '../Assets/css/main.css';
 import Card from '../components/Card';
 import '../Assets/css/city.css';
 import last from '../Assets/images/4.jpg';
+import { Link } from "react-router-dom";
+import Options from "../options";
 
 export default class City extends Component{
 
@@ -48,7 +50,7 @@ export default class City extends Component{
                 var photo_url = "NA";
                 if(photo.length > 0){
                     var photo_reference = photo["0"]["photo_reference"];
-                    photo_url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photo_reference}&key=${this.apiKey}`;
+                    photo_url = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&maxheight=500&photoreference=${photo_reference}&key=${this.apiKey}`;
                     //console.log(photo_url);
                 }
 
@@ -122,20 +124,15 @@ export default class City extends Component{
                     </p>
                     <b>{this.state.covid['active'] < 200 ? "Safe to visit :)" : "Not good to visit this time :("}</b>
                 </div>
+                <Options />
                <h2>The best Places to visit:</h2>
                
                {
                     this.state.places.map((val, i) => {
                             return (
-                                // <Link
-                                //     onClick={(e) => {
-                                //         e.preventDefault();
-                                //         this.setState({ place: val.place_id });
-                                //         Redirect("/Place");
-                                //     }}
-                                // >
-                                    <Card key={i} img_url={val.img_url} name={val.name} address={val.address} rating={val.rating} num_ratings={val.num_ratings} open_now={val.open_now} />
-                                // </Link>
+                                <Link to={"/Place"}>
+                                    <Card key={i} place_id={val.place_id} img_url={val.img_url} name={val.name} address={val.address} rating={val.rating} num_ratings={val.num_ratings} open_now={val.open_now} />
+                                </Link>
                             )
                     })
                }
