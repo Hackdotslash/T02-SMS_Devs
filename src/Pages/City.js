@@ -73,12 +73,30 @@ export default class City extends Component{
             };
             var covid = results[0]['plus_code']['compound_code'].split(', ');
             var state = covid[1];
-            var city = covid[0].split(' ')[1];
-            console.log(state, city);
+            var city_str = covid[0].split(' ');
+            var size = city_str.length;
+            var city = city_str.slice(1, size).join(' ');
+            //console.log(covid);
+            console.log(`state: ${state}, city: ${city}`);
             fetch(covid_url, requestOptions)
             .then((response) => response.json())
             .then((data) => {
-                var covid_results = data['state_wise'][state]['district'][city];
+                //console.log(data);
+                var keys = Object.keys(data['state_wise']);
+                //console.log(keys);
+                for(var i = 0; i < keys.length; i++){
+                    //console.log(state, keys[i]);
+                    if(keys[i].includes(state)){
+                        state = keys[i];
+                        break;
+                    }
+                }
+                var cov_data = Object(data['state_wise'][state]);
+                if(cov_data.hasOwnProperty('district')){
+                    var covid_results = cov_data['district'][city];
+                } else {
+                    var covid_results = cov_data;
+                }
                 console.log(covid_results);
                 this.setState({ covid: covid_results });
             });
