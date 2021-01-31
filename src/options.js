@@ -1,17 +1,18 @@
 import React from "react";
 import {Link,Switch} from "react-router-dom";
-import page1 from "./page1";
-import page2 from "./page2";
+
+import Page1 from "./Pages/Page1";
+import Page2 from "./Pages/Page2";
 
 function Options() {
     return (
         <div class="container foot">
         
-            <p> How to reach? </p>
+            <h3> How to reach? </h3>
             <p>
-            <Link to={"/page1"}> Flight</Link></p>
+            <Link to={'/Page1'}> Flight</Link></p>
             <p>
-            <Link to={"/page2"}> Train</Link></p>
+            <Link to={"/Page2"}> Train</Link></p>
           
        </div>
      
