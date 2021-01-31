@@ -57,7 +57,7 @@ export default class Home extends Component{
                         <img src={img2} />
                     </div>
                     <div class="col-sm-6">
-                        <br /><br /><br />
+                        <br /><br />
                         <p> Enter the place where you want to visit and find:
                         <ul><li> COVID Scenario of the place </li>
                         <li> Major tourist attractions of the place </li>
@@ -66,7 +66,7 @@ export default class Home extends Component{
                         <br/>
                         <input type="text" class="form-control ip" id="place" placeholder="Place Name" />
                         <br/>
-                        <button><Link to={"/City"}>CLICK TO SEE</Link></button>
+                        <button class="btn btn-large btn-primary"><Link to={"/City"}><b>LET'S SEE!</b></Link></button>
 
 
                     </div>
