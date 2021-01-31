@@ -13,14 +13,17 @@ export default class City extends Component{
 
         this.state = {
             places: [],
+            covid: [],
         }
 
-        this.place = "delhi city point of interest".split(' ').join('+');
+        var dest = `${this.props.city} city point of interest`;
+        this.place = dest.split(' ').join('+');
         this.apiKey = "AIzaSyCD6irhf_cJoK_6l-GkU1T2rw1PS7NqsBc";
         this.fetchPlaces = this.fetchPlaces.bind(this);
     }
 
     componentDidMount() {
+        console.log(this.props.city);
         this.fetchPlaces();
     }
 
@@ -37,7 +40,8 @@ export default class City extends Component{
                 var name = results[i]['name'];
                 var rating = results[i]['rating'];
                 var num_ratings = results[i]['user_ratings_total'];
-                var open_now = Object(results[i]['opening_hours'])['open_now'];
+                var address = results[i]['formatted_address'];
+                var open_now = Object(results[i]['opening_hours'])['open_now'] ? "Open" : "Closed";
                 
                 var photo = Object(results[i]['photos']);
                 var photo_url = "NA";
@@ -51,12 +55,35 @@ export default class City extends Component{
                     "name": name,
                     "rating": rating,
                     "num_ratings": num_ratings,
+                    "address": address,
                     "open_now": open_now,
                     "img_url": photo_url
                 };
 
                 final.push(place);
             }
+
+            const covid_url = `https://corona-virus-world-and-india-data.p.rapidapi.com/api_india`;
+            const requestOptions = {
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-rapidapi-key": "59ce8d6adbmsh65239e69c1fe1c3p1b6698jsn937eacd16b51",
+                    "x-rapidapi-host": "corona-virus-world-and-india-data.p.rapidapi.com",
+                    "useQueryString": true
+                }
+            };
+            var covid = results[0]['plus_code']['compound_code'].split(', ');
+            var state = covid[1];
+            var city = covid[0].split(' ')[1];
+            console.log(state, city);
+            fetch(covid_url, requestOptions)
+            .then((response) => response.json())
+            .then((data) => {
+                var covid_results = data['state_wise'][state]['district'][city];
+                console.log(covid_results);
+                this.setState({ covid: covid_results });
+            });
+
             console.log(final);
             this.setState({ places: final });
             return final;
@@ -70,8 +97,7 @@ export default class City extends Component{
                     <h1>Covid 19 Scenario</h1>
                     <img src="https://cdn.pixabay.com/photo/2020/04/29/07/54/coronavirus-5107715_960_720.png"/>
                     <hr></hr>
-                    <p><span>XXXX active cases</span><br/>
-                    <b>Safe to visit ;)</b>
+                    <p><span>{this.state.covid['active']} active cases</span><br/>
                     </p>
                 </div>
                <h2>The best Places to visit:</h2>
@@ -79,7 +105,7 @@ export default class City extends Component{
                {
                     this.state.places.map((val, i) => {
                             return (
-                            <Card key={i} img_url={val.img_url} name={val.name} rating={val.rating} num_ratings={val.num_ratings} open_now={val.open_now} />
+                            <Card key={i} img_url={val.img_url} name={val.name} address={val.address} rating={val.rating} num_ratings={val.num_ratings} open_now={val.open_now} />
                             )
                     })
                }
