@@ -16,7 +16,8 @@ export default class City extends Component{
             covid: [],
         }
 
-        this.place = "udaipur city point of interest".split(' ').join('+');
+        var dest = `${this.props.city} city point of interest`;
+        this.place = dest.split(' ').join('+');
         this.apiKey = "AIzaSyCD6irhf_cJoK_6l-GkU1T2rw1PS7NqsBc";
         this.fetchPlaces = this.fetchPlaces.bind(this);
     }
