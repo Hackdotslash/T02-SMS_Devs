@@ -4,11 +4,6 @@ import '../Assets/css/main.css';
 import Card from '../components/Card';
 import '../Assets/css/city.css';
 import last from '../Assets/images/4.jpg';
-<<<<<<< HEAD
-import corona from '../Assets/images/corona.png';
-import { Link, Redirect } from "react-router-dom";
-=======
->>>>>>> 1406e3c507313c7679987dc03f8d2961c9f89c83
 
 export default class City extends Component{
 
