@@ -7,6 +7,7 @@ import Footer from '../src/components/Footer'
 import logo from './Assets/images/vacationer_logo.png';
 import {BrowserRouter,Switch,Route,Redirect} from "react-router-dom";
 import  { Link } from 'react-router-dom';
+import Gallery from './Pages/Gallery';
 
 export default class App extends Component{
   render() {
@@ -24,7 +25,7 @@ export default class App extends Component{
         <Link to='/' > some stuff </Link>
         </Switch>
         </BrowserRouter>
-
+      {/* /* <Gallery/> */}
       <Footer/>
       </div>
     );
